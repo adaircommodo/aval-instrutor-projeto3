@@ -5,12 +5,13 @@ public class Empregado {
 	private String nome;
 	private String sobreNome;
 	private double salarioMensal;
+	private static int numeroDeEmpregados;
 	
 	public Empregado(String nome, String sobreNome, double salarioMensal) {
-		super();
 		this.setNome(nome);
 		this.setSobreNome(sobreNome);
 		this.setSalarioMensal(salarioMensal);
+		this.numeroDeEmpregados+=1;
 	}
 
 	public String getNome() {
@@ -37,4 +38,7 @@ public class Empregado {
 		this.salarioMensal = salarioMensal;
 	}
 
+	public void getNumeroFuncionariosPassaramPelaEmpresa() {
+		System.out.println("Passaram: "+this.numeroDeEmpregados+" empregados pela empresa!");
+	}
 }
