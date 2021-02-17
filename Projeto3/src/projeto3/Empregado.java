@@ -6,6 +6,13 @@ public class Empregado {
 	private String sobreNome;
 	private double salarioMensal;
 	
+	public Empregado(String nome, String sobreNome, double salarioMensal) {
+		super();
+		this.setNome(nome);
+		this.setSobreNome(sobreNome);
+		this.setSalarioMensal(salarioMensal);
+	}
+
 	public String getNome() {
 		return nome;
 	}
