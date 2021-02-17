@@ -1,5 +1,7 @@
 package projeto3;
 
+import java.text.DecimalFormat;
+
 public class Empregado {
 	
 	private String nome;
@@ -26,7 +28,7 @@ public class Empregado {
 		return sobreNome;
 	}
 	
-	public void setSobreNome(String sobreNome) {
+	private void setSobreNome(String sobreNome) {
 		this.sobreNome = sobreNome;
 	}
 	
@@ -37,8 +39,30 @@ public class Empregado {
 	public void setSalarioMensal(double salarioMensal) {
 		this.salarioMensal = salarioMensal;
 	}
+	
+	public String getExibirSalarioMensal() {
+		DecimalFormat df = new DecimalFormat("###,##0.00");
+		return ("R$ " + df.format(this.getSalarioMensal()));
+	}
+	
+	public double getSalarioAnual() {
+		return (this.salarioMensal * 12);
+	}
+	
+	public String getExibirSalarioAnual() {
+		DecimalFormat df = new DecimalFormat("###,##0.00");
+		return  ("R$ " + df.format(this.getSalarioAnual()));
+	}
+	
+	public void setAumento(double percentual) {
+		
+		Double aumento = this.getSalarioMensal() * (1+(percentual/100));
+		aumento = (double) Math.round(aumento);
+		this.setSalarioMensal(aumento);
+		
+	}
 
-	public void getNumeroFuncionariosPassaramPelaEmpresa() {
-		System.out.println("Passaram: "+this.numeroDeEmpregados+" empregados pela empresa!");
+	public static void getNumeroFuncionariosPassaramPelaEmpresa() {
+		System.out.println("Passaram: "+Empregado.numeroDeEmpregados+" empregados pela empresa!");
 	}
 }
